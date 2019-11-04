@@ -15,6 +15,9 @@
 		DF2E88AC237096A2007D1685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E88AB237096A2007D1685 /* Assets.xcassets */; };
 		DF2E88AF237096A2007D1685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF2E88AD237096A2007D1685 /* LaunchScreen.storyboard */; };
 		DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88B9237096A2007D1685 /* Foursquare_Map_ProjectTests.swift */; };
+		DF2E88C52370B307007D1685 /* FourSquareLocationJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */; };
+		DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88C62370B677007D1685 /* FourSquareSearch.swift */; };
+		DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88C62370B677007D1685 /* FourSquareSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,8 @@
 		DF2E88B5237096A2007D1685 /* Foursquare-Map-ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Foursquare-Map-ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2E88B9237096A2007D1685 /* Foursquare_Map_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foursquare_Map_ProjectTests.swift; sourceTree = "<group>"; };
 		DF2E88BB237096A2007D1685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FourSquareLocationJSON.json; sourceTree = "<group>"; };
+		DF2E88C62370B677007D1685 /* FourSquareSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +88,8 @@
 			children = (
 				DF2E889F237096A1007D1685 /* AppDelegate.swift */,
 				DF2E88A1237096A1007D1685 /* SceneDelegate.swift */,
-				DF2E88A3237096A1007D1685 /* ViewController.swift */,
+				DF2E88C92370C0E2007D1685 /* Model */,
+				DF2E88CA2370C0FB007D1685 /* Controllers */,
 				DF2E88A5237096A1007D1685 /* Main.storyboard */,
 				DF2E88AB237096A2007D1685 /* Assets.xcassets */,
 				DF2E88AD237096A2007D1685 /* LaunchScreen.storyboard */,
@@ -100,6 +106,23 @@
 				DF2E88BB237096A2007D1685 /* Info.plist */,
 			);
 			path = "Foursquare-Map-ProjectTests";
+			sourceTree = "<group>";
+		};
+		DF2E88C92370C0E2007D1685 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */,
+				DF2E88C62370B677007D1685 /* FourSquareSearch.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF2E88CA2370C0FB007D1685 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DF2E88A3237096A1007D1685 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +209,7 @@
 				DF2E88AF237096A2007D1685 /* LaunchScreen.storyboard in Resources */,
 				DF2E88AC237096A2007D1685 /* Assets.xcassets in Resources */,
 				DF2E88A7237096A1007D1685 /* Main.storyboard in Resources */,
+				DF2E88C52370B307007D1685 /* FourSquareLocationJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +231,7 @@
 				DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */,
 				DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */,
 				DF2E88AA237096A1007D1685 /* Foursquare_Map_Project.xcdatamodeld in Sources */,
+				DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */,
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
