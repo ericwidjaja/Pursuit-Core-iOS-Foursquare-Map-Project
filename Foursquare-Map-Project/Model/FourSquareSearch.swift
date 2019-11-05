@@ -13,6 +13,7 @@ import Foundation
 
 struct FourSquareModel: Codable {
     let response: ResponseWrapper
+    
 }
 
 struct ResponseWrapper: Codable {

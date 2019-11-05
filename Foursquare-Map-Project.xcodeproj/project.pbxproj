@@ -18,6 +18,12 @@
 		DF2E88C52370B307007D1685 /* FourSquareLocationJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */; };
 		DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88C62370B677007D1685 /* FourSquareSearch.swift */; };
 		DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88C62370B677007D1685 /* FourSquareSearch.swift */; };
+		DF2E88CC2370D800007D1685 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88CB2370D800007D1685 /* MainView.swift */; };
+		DF2E88CD2370D800007D1685 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88CB2370D800007D1685 /* MainView.swift */; };
+		DF2E893723722E0C007D1685 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893623722E0C007D1685 /* SearchViewController.swift */; };
+		DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893623722E0C007D1685 /* SearchViewController.swift */; };
+		DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893923722E2F007D1685 /* CollectionViewController.swift */; };
+		DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893923722E2F007D1685 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,9 @@
 		DF2E88BB237096A2007D1685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FourSquareLocationJSON.json; sourceTree = "<group>"; };
 		DF2E88C62370B677007D1685 /* FourSquareSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareSearch.swift; sourceTree = "<group>"; };
+		DF2E88CB2370D800007D1685 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DF2E893623722E0C007D1685 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Foursquare-Map-Project/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
+		DF2E893923722E2F007D1685 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +98,7 @@
 				DF2E889F237096A1007D1685 /* AppDelegate.swift */,
 				DF2E88A1237096A1007D1685 /* SceneDelegate.swift */,
 				DF2E88C92370C0E2007D1685 /* Model */,
+				DF2E88CE2370D80D007D1685 /* Views */,
 				DF2E88CA2370C0FB007D1685 /* Controllers */,
 				DF2E88A5237096A1007D1685 /* Main.storyboard */,
 				DF2E88AB237096A2007D1685 /* Assets.xcassets */,
@@ -120,9 +130,19 @@
 		DF2E88CA2370C0FB007D1685 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DF2E893623722E0C007D1685 /* SearchViewController.swift */,
+				DF2E893923722E2F007D1685 /* CollectionViewController.swift */,
 				DF2E88A3237096A1007D1685 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DF2E88CE2370D80D007D1685 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DF2E88CB2370D800007D1685 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E88A4237096A1007D1685 /* ViewController.swift in Sources */,
+				DF2E893723722E0C007D1685 /* SearchViewController.swift in Sources */,
+				DF2E88CC2370D800007D1685 /* MainView.swift in Sources */,
 				DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */,
+				DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */,
 				DF2E88AA237096A1007D1685 /* Foursquare_Map_Project.xcdatamodeld in Sources */,
 				DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */,
@@ -240,7 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */,
+				DF2E88CD2370D800007D1685 /* MainView.swift in Sources */,
+				DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */,
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
+				DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

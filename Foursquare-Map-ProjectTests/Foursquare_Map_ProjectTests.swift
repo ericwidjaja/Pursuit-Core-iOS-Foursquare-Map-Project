@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import Foursquare_Map_Project
+
+//@testable import Foursquare_Map_Project
 
 class Foursquare_Map_ProjectTests: XCTestCase {
 
