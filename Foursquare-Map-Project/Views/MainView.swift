@@ -9,8 +9,6 @@
 import UIKit
 import MapKit
 
-
-
 class MainView: UIView {
     
     override init(frame: CGRect) {
@@ -24,58 +22,62 @@ class MainView: UIView {
     
     lazy var mapView: MKMapView = {
         let map = MKMapView()
-        map.layer.cornerRadius = 2.0
+        map.layer.cornerRadius = 1.0
         return map
     }()
     
     lazy var search: UISearchBar = {
         let searchBar = UISearchBar()
-//        searchBar.layer.cornerRadius = 0.1
         searchBar.placeholder = "search for venue"
         return searchBar
     }()
     
     lazy var userLocation: UISearchBar = {
         let locationBar = UISearchBar()
-//        locationBar.layer.cornerRadius = 0.1
         locationBar.placeholder = "New York, NY"
         return locationBar
     }()
     
-    lazy var cancelButton: UIButton = {
-        let cancelButtn = UIButton()
-//        cancelButtn.layer.cornerRadius = 0.25
-        let image = UIImage(systemName: "rectangle")
-        cancelButtn.setImage(image, for: .normal)
-//        cancelButtn.addTarget(self, action: #selector(optionButtonPressed(sender:)), for: .touchUpInside)
-        
-//        cancelButtn.setBackgroundImage(.actions, for: .normal)
-        cancelButtn.tintColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
-        return cancelButtn
+    lazy var eventsListButton: UIButton = {
+        let listButton = UIButton()
+        let image = UIImage(systemName: "list.dash")
+        listButton.setImage(image, for: .normal)
+//        listButton.addTarget(self, action: #selector(optionButtonPressed(sender:)), for: .touchUpInside)
+        listButton.tintColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        return listButton
     }()
     
-    //    lazy var userLocation: UISearchBar = {
-    //            let locationBar = UISearchBar()
-    //            locationBar.layer.cornerRadius = 10.0
-    //            locationBar.placeholder = "New York, NY"
-    //            return locationBar
-    //        }()
+    lazy var collectionView: UICollectionView = {
+        
+        let cellLayout = UICollectionViewFlowLayout()
+            cellLayout.scrollDirection = .horizontal
+            cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 2, bottom: 0, right: 2)
+    
+            cellLayout.itemSize = CGSize.init(width: 150, height: 160)
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
+            collectionView.backgroundColor = #colorLiteral(red: 0.8909798861, green: 0.8911294937, blue: 0.8909601569, alpha: 1)
+            collectionView.layer.cornerRadius = 5.0
+    return collectionView
+    }()
+
     
     func setConstraints() {
         searchConstraints()
         userLocationConstraints()
-        cancelButtnConstraints()
+        listButtonConstraints()
         mapConstraints()
+        collectionViewConstraints()
         
     }
     
-    private func cancelButtnConstraints() {
-        addSubview(cancelButton)
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+    private func listButtonConstraints() {
+        addSubview(eventsListButton)
+        eventsListButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor), cancelButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 310),
-            cancelButton.widthAnchor.constraint(equalToConstant: 75),
-            cancelButton.heightAnchor.constraint(equalToConstant: 35)])
+            eventsListButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            eventsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 365),
+            eventsListButton.widthAnchor.constraint(equalToConstant: 50),
+            eventsListButton.heightAnchor.constraint(equalToConstant: 40)])
     }
     
     private func searchConstraints() {
@@ -84,8 +86,8 @@ class MainView: UIView {
         NSLayoutConstraint.activate([
             search.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             search.leadingAnchor.constraint(equalTo: leadingAnchor),
-            search.widthAnchor.constraint(equalToConstant: 325),
-            search.heightAnchor.constraint(equalToConstant: 35)])
+            search.widthAnchor.constraint(equalToConstant: 360),
+            search.heightAnchor.constraint(equalToConstant: 45)])
         
     }
     
@@ -96,7 +98,7 @@ class MainView: UIView {
             userLocation.topAnchor.constraint(equalTo: search.bottomAnchor, constant: 0),
             userLocation.leadingAnchor.constraint(equalTo: leadingAnchor),
             userLocation.trailingAnchor.constraint(equalTo: trailingAnchor),
-            userLocation.heightAnchor.constraint(equalToConstant: 35)])
+            userLocation.heightAnchor.constraint(equalToConstant: 45)])
     }
     private func mapConstraints() {
         addSubview(mapView)
@@ -105,6 +107,12 @@ class MainView: UIView {
             mapView.topAnchor.constraint(equalTo: userLocation.bottomAnchor, constant: 0),
             mapView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
             mapView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1),
-            mapView.heightAnchor.constraint(equalToConstant: 550)])
+            mapView.heightAnchor.constraint(equalToConstant: 565)])
+    }
+    private func collectionViewConstraints() {
+        addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 1),                            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1), collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1), collectionView.heightAnchor.constraint(equalToConstant: 161)
+        ])
     }
 }

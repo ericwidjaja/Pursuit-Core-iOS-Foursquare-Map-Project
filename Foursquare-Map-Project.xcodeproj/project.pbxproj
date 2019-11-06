@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF2ABE8D2373812A00E731AD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8C2373812A00E731AD /* AppError.swift */; };
+		DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8C2373812A00E731AD /* AppError.swift */; };
+		DF2ABE902373814700E731AD /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8F2373814700E731AD /* ImageHelper.swift */; };
+		DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8F2373814700E731AD /* ImageHelper.swift */; };
+		DF2ABE932373818600E731AD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE922373818600E731AD /* NetworkHelper.swift */; };
+		DF2ABE942373818600E731AD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE922373818600E731AD /* NetworkHelper.swift */; };
 		DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E889F237096A1007D1685 /* AppDelegate.swift */; };
 		DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88A1237096A1007D1685 /* SceneDelegate.swift */; };
 		DF2E88A4237096A1007D1685 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88A3237096A1007D1685 /* ViewController.swift */; };
@@ -37,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF2ABE8C2373812A00E731AD /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		DF2ABE8F2373814700E731AD /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		DF2ABE922373818600E731AD /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		DF2E889C237096A1007D1685 /* Foursquare-Map-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foursquare-Map-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2E889F237096A1007D1685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF2E88A1237096A1007D1685 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF2ABE8B2373806D00E731AD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DF2ABE8C2373812A00E731AD /* AppError.swift */,
+				DF2ABE8F2373814700E731AD /* ImageHelper.swift */,
+				DF2ABE922373818600E731AD /* NetworkHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		DF2E8893237096A1007D1685 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +116,7 @@
 			children = (
 				DF2E889F237096A1007D1685 /* AppDelegate.swift */,
 				DF2E88A1237096A1007D1685 /* SceneDelegate.swift */,
+				DF2ABE8B2373806D00E731AD /* Helpers */,
 				DF2E88C92370C0E2007D1685 /* Model */,
 				DF2E88CE2370D80D007D1685 /* Views */,
 				DF2E88CA2370C0FB007D1685 /* Controllers */,
@@ -248,7 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E88A4237096A1007D1685 /* ViewController.swift in Sources */,
+				DF2ABE902373814700E731AD /* ImageHelper.swift in Sources */,
 				DF2E893723722E0C007D1685 /* SearchViewController.swift in Sources */,
+				DF2ABE8D2373812A00E731AD /* AppError.swift in Sources */,
+				DF2ABE932373818600E731AD /* NetworkHelper.swift in Sources */,
 				DF2E88CC2370D800007D1685 /* MainView.swift in Sources */,
 				DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */,
 				DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */,
@@ -262,11 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2ABE942373818600E731AD /* NetworkHelper.swift in Sources */,
 				DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */,
 				DF2E88CD2370D800007D1685 /* MainView.swift in Sources */,
+				DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */,
 				DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */,
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
 				DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */,
+				DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

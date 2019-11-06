@@ -7,10 +7,25 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class SearchViewController: UIViewController {
+    
     let mainView = MainView()
-
+    let locationManager = CLLocationManager()
+    var searchOriginCoordinates = CLLocationCoordinate2DMake(40.742442, -73.941235)
+    
+    var venues = [VenueStruct]()
+    var annotations = [MKAnnotation]()
+    
+//    var myCurrentRegion = MKCoordinateRegion() {
+//        didSet {
+//            getVenues(keyword: userDefaultsSearchTerm())
+//        }
+//    }
+    
+    
     private func setMainView() {
         view.addSubview(mainView)
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
