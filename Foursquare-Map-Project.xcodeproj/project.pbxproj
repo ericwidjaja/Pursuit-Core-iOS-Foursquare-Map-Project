@@ -13,6 +13,10 @@
 		DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8F2373814700E731AD /* ImageHelper.swift */; };
 		DF2ABE932373818600E731AD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE922373818600E731AD /* NetworkHelper.swift */; };
 		DF2ABE942373818600E731AD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE922373818600E731AD /* NetworkHelper.swift */; };
+		DF2ABE9623739BB100E731AD /* SearchAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */; };
+		DF2ABE9723739BB100E731AD /* SearchAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */; };
+		DF2ABE992373A14B00E731AD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE982373A14B00E731AD /* Secret.swift */; };
+		DF2ABE9A2373A14B00E731AD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE982373A14B00E731AD /* Secret.swift */; };
 		DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E889F237096A1007D1685 /* AppDelegate.swift */; };
 		DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88A1237096A1007D1685 /* SceneDelegate.swift */; };
 		DF2E88A4237096A1007D1685 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E88A3237096A1007D1685 /* ViewController.swift */; };
@@ -46,6 +50,8 @@
 		DF2ABE8C2373812A00E731AD /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		DF2ABE8F2373814700E731AD /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		DF2ABE922373818600E731AD /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIClient.swift; sourceTree = "<group>"; };
+		DF2ABE982373A14B00E731AD /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		DF2E889C237096A1007D1685 /* Foursquare-Map-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foursquare-Map-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2E889F237096A1007D1685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF2E88A1237096A1007D1685 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 				DF2E88AD237096A2007D1685 /* LaunchScreen.storyboard */,
 				DF2E88B0237096A2007D1685 /* Info.plist */,
 				DF2E88A8237096A1007D1685 /* Foursquare_Map_Project.xcdatamodeld */,
+				DF2ABE982373A14B00E731AD /* Secret.swift */,
 			);
 			path = "Foursquare-Map-Project";
 			sourceTree = "<group>";
@@ -152,6 +159,7 @@
 			children = (
 				DF2E893623722E0C007D1685 /* SearchViewController.swift */,
 				DF2E893923722E2F007D1685 /* CollectionViewController.swift */,
+				DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */,
 				DF2E88A3237096A1007D1685 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -276,8 +284,10 @@
 				DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */,
 				DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */,
+				DF2ABE992373A14B00E731AD /* Secret.swift in Sources */,
 				DF2E88AA237096A1007D1685 /* Foursquare_Map_Project.xcdatamodeld in Sources */,
 				DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */,
+				DF2ABE9623739BB100E731AD /* SearchAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2ABE942373818600E731AD /* NetworkHelper.swift in Sources */,
+				DF2ABE9A2373A14B00E731AD /* Secret.swift in Sources */,
 				DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */,
 				DF2E88CD2370D800007D1685 /* MainView.swift in Sources */,
 				DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */,
@@ -293,6 +304,7 @@
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
 				DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */,
+				DF2ABE9723739BB100E731AD /* SearchAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,15 +14,25 @@ class SearchViewController: UIViewController {
     
     let mainView = MainView()
     let locationManager = CLLocationManager()
-    var searchOriginCoordinates = CLLocationCoordinate2DMake(40.742442, -73.941235)
+    var searchCoordinatesOrigin = CLLocationCoordinate2DMake(40.742442, -73.941235)
     
     var venues = [VenueStruct]()
     var annotations = [MKAnnotation]()
     
 //    var myCurrentRegion = MKCoordinateRegion() {
 //        didSet {
-//            getVenues(keyword: userDefaultsSearchTerm())
+//            getVenues(keyword: userSearch())
 //        }
+//    }
+    
+    
+    private func getVenues(keyword: String) {
+        //put searchAPIClient codes here
+    }
+    
+//    private func userSearch() -> String {
+//        //define userSearch here
+//        return
 //    }
     
     
