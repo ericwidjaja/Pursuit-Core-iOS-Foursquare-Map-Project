@@ -14,37 +14,56 @@ class SearchViewController: UIViewController {
     
     let mainView = MainView()
     let locationManager = CLLocationManager()
-    var searchCoordinatesOrigin = CLLocationCoordinate2DMake(40.742442, -73.941235)
-    
+    let searchInitialCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
+    let searchRadius: CLLocationDistance = 1000
+
     var venues = [VenueStruct]()
-    var annotations = [MKAnnotation]()
-    
-//    var myCurrentRegion = MKCoordinateRegion() {
-//        didSet {
-//            getVenues(keyword: userSearch())
-//        }
-//    }
-    
-    
+
     private func getVenues(keyword: String) {
         //put searchAPIClient codes here
     }
-    
-//    private func userSearch() -> String {
-//        //define userSearch here
-//        return
-//    }
-    
-    
+
     private func setMainView() {
         view.addSubview(mainView)
+        locationManager.delegate = self
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setMainView()
+        locationManager.delegate = self
+        mainView.mapView.userTrackingMode = .followWithHeading
+        checkLocationPermission()
+    }
+    private func checkLocationPermission() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways, .authorizedWhenInUse:
+            mainView.mapView.showsUserLocation = true
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+        default:
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension SearchViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("InitialSearchLocation")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.requestLocation()
+        default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error: \(error)")
     }
 }

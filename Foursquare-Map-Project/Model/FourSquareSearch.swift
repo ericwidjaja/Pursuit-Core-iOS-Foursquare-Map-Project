@@ -8,12 +8,11 @@
 
 import Foundation
 
-//https://api.foursquare.com/v2/venues/search?client_id=PO30AILO2IJRCZEI4MI5RPYZ1PB5T5CSRV4DCTEJVH0ECEPL&client_secret=NASDPNCTT40XLSIQVYZA0Q0KPKQ2UN3J5ZP1NGSQJQZQVVOV&ll=40.7429635,-73.9441102&query=coffee&v=20191104
+//https://api.foursquare.com/v2/venues/search?client_id=PO30AILO2IJRCZEI4MI5RPYZ1PB5T5CSRV4DCTEJVH0ECEPL&client_secret=NASDPNCTT40XLSIQVYZA0Q0KPKQ2UN3J5ZP1NGSQJQZQVVOV&ll=40.742442,-73.941235&query=coffee&v=20191107
 
 
 struct FourSquareModel: Codable {
     let response: ResponseWrapper
-    
 }
 
 struct ResponseWrapper: Codable {

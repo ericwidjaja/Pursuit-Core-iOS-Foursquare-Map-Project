@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MainView: UIView {
     
@@ -20,9 +21,12 @@ class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     lazy var mapView: MKMapView = {
         let map = MKMapView()
         map.layer.cornerRadius = 1.0
+        map.showsUserLocation = true
+        map.mapType = .standard
         return map
     }()
     

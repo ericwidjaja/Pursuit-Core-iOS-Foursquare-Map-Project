@@ -34,6 +34,8 @@
 		DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893623722E0C007D1685 /* SearchViewController.swift */; };
 		DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893923722E2F007D1685 /* CollectionViewController.swift */; };
 		DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893923722E2F007D1685 /* CollectionViewController.swift */; };
+		DFD689402374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
+		DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		DF2E88CB2370D800007D1685 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DF2E893623722E0C007D1685 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Foursquare-Map-Project/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
 		DF2E893923722E2F007D1685 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		DFD6893F2374C90700A025F4 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,7 @@
 			children = (
 				DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */,
 				DF2E88C62370B677007D1685 /* FourSquareSearch.swift */,
+				DFD6893F2374C90700A025F4 /* LocationDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +286,7 @@
 				DF2ABE932373818600E731AD /* NetworkHelper.swift in Sources */,
 				DF2E88CC2370D800007D1685 /* MainView.swift in Sources */,
 				DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */,
+				DFD689402374C90700A025F4 /* LocationDelegate.swift in Sources */,
 				DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */,
 				DF2ABE992373A14B00E731AD /* Secret.swift in Sources */,
@@ -304,6 +309,7 @@
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
 				DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */,
+				DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */,
 				DF2ABE9723739BB100E731AD /* SearchAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
