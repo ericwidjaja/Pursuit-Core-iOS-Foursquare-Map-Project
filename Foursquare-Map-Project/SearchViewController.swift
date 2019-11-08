@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
     
     let mainView = MainView()
     let locationManager = CLLocationManager()
-    let searchInitialCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
+    let searchInitialCoordinates = CLLocation(latitude: 40.742442, longitude: -73.941235)
     let searchRadius: CLLocationDistance = 1000
 
     var venues = [VenueStruct]()
@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setMainView()
         locationManager.delegate = self
-        mainView.mapView.userTrackingMode = .followWithHeading
+        mainView.mapView.userTrackingMode = .follow
         checkLocationPermission()
     }
     private func checkLocationPermission() {
