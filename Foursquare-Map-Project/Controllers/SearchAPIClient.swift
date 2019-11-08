@@ -11,9 +11,7 @@ class SearchAPIClient {
     
     private init() {}
     
-    static let helper = SearchAPIClient()
-    
-    func getVenue(latitude: String, longitude: String, category: String, completionHandler: @escaping (Result<[VenueStruct],AppError>) -> ()) {
+    static func getVenue(latitude: String, longitude: String, category: String, completionHandler: @escaping (Result<[VenueStruct],AppError>) -> Void) {
         
         let urlString = "https://api.foursquare.com/v2/venues/search?client_id=\(Secrets.myID)&client_secret=\(Secrets.secretKey)&v=20180323&ll=\(latitude),\(longitude)&query=\(category)"
         
@@ -36,3 +34,4 @@ class SearchAPIClient {
         }
     }
 }
+ 

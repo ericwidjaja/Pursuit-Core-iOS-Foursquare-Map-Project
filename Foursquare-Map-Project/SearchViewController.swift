@@ -14,28 +14,56 @@ class SearchViewController: UIViewController {
     
     let mainView = MainView()
     let locationManager = CLLocationManager()
-    let searchInitialCoordinates = CLLocation(latitude: 40.742442, longitude: -73.941235)
+    let searchInitialCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
     let searchRadius: CLLocationDistance = 1000
-
-    var venues = [VenueStruct]()
-
-    private func getVenues(keyword: String) {
-        //put searchAPIClient codes here
-    }
-
-    private func setMainView() {
-        view.addSubview(mainView)
-        locationManager.delegate = self
-        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    }
     
+    var venues = [VenueStruct]()
+    
+    private var currentRegion = MKCoordinateRegion() {
+        didSet {
+            getVenues(keyword: "coffee")
+        }
+    }
+
+//    private func userSearch() -> String {
+//       //More code here
+//
+//    }
+    
+    private func getVenues(keyword: String) {
+        SearchAPIClient.getVenue(latitude: currentRegion.center.latitude.description, longitude: currentRegion.center.longitude.description, category: keyword) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let venues):
+                    self.venues = venues
+//                    self.addAnnotations()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+
+
+    
+
+    
+
+private func setMainView() {
+    view.addSubview(mainView)
+    locationManager.delegate = self
+    mainView.mapView.userTrackingMode = .follow
+    self.currentRegion = MKCoordinateRegion(center: searchInitialCoordinates, latitudinalMeters: searchRadius, longitudinalMeters: searchRadius)
+    mainView.mapView.setRegion(currentRegion, animated: true)
+    self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+}
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setMainView()
-        locationManager.delegate = self
-        mainView.mapView.userTrackingMode = .follow
         checkLocationPermission()
     }
+    
     private func checkLocationPermission() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse:
@@ -48,6 +76,7 @@ class SearchViewController: UIViewController {
         }
     }
 }
+
 
 extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
