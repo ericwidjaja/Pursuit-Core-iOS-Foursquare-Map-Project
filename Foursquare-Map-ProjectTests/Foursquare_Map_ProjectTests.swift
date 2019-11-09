@@ -31,5 +31,20 @@ class Foursquare_Map_ProjectTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+//    func testFourSquareSearchModel() {
+//        guard let path = Bundle.main.path(forResource: "FourSquareLocationJSON", ofType: "json") else { return }
+//        
+//        let url = URL(fileURLWithPath: path)
+//        do {
+//            let data = try Data(contentsOf: url)
+//            let testVenue = 
+//            
+//            let testVenue = try DarkSkyWeather.getForecastFromData(data: data) ?? []
+//            print(testWeather.count)
+//            XCTAssert(testWeather.count > 0, "We have \(testWeather.count) listings")
+//        } catch {
+//            print(error)
+//            XCTFail()
+//        }
+    }
 }

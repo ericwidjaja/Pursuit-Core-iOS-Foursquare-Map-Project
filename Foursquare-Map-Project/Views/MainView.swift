@@ -46,8 +46,8 @@ class MainView: UIView {
         let listButton = UIButton()
         let image = UIImage(systemName: "list.dash")
         listButton.setImage(image, for: .normal)
-//        listButton.addTarget(self, action: #selector(optionButtonPressed(sender:)), for: .touchUpInside)
-        listButton.tintColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+//        listButton.addTarget(self, action: #selector(listButtonPressed(sender:)), for: .touchUpInside)
+        listButton.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
         return listButton
     }()
     
@@ -59,10 +59,13 @@ class MainView: UIView {
     
             cellLayout.itemSize = CGSize.init(width: 150, height: 160)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
+//            collectionView.register(MapCollectionCell.self, forCellWithReuseIdentifier: "mapCell")
             collectionView.backgroundColor = #colorLiteral(red: 0.8909798861, green: 0.8911294937, blue: 0.8909601569, alpha: 1)
             collectionView.layer.cornerRadius = 5.0
     return collectionView
     }()
+    
+
 
     
     func setConstraints() {
@@ -74,6 +77,7 @@ class MainView: UIView {
         
     }
     
+    //MARK: - Constraints
     private func listButtonConstraints() {
         addSubview(eventsListButton)
         eventsListButton.translatesAutoresizingMaskIntoConstraints = false
