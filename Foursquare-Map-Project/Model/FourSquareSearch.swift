@@ -13,11 +13,25 @@ import Foundation
 
 struct FourSquareModel: Codable {
     let response: ResponseWrapper
+    
+    static func getVenues(from data: Data) -> [VenueStruct]? {
+        do {
+            let newVenues = try JSONDecoder().decode(FourSquareModel.self, from: data)
+            return newVenues.response.venues
+        } catch let decodeError {
+            print(decodeError)
+            return nil
+        }
+    }
 }
+
 
 struct ResponseWrapper: Codable {
     let venues: [VenueStruct]
+    
+
 }
+
 struct VenueStruct: Codable {
     var imageLink: String?
     let id: String

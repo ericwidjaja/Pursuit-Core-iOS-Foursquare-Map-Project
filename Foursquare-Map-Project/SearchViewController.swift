@@ -21,7 +21,7 @@ class SearchViewController: UIViewController {
     
     private var currentRegion = MKCoordinateRegion() {
         didSet {
-            getVenues(keyword: "dance")
+            getVenues(keyword: "coffee")
         }
     }
     

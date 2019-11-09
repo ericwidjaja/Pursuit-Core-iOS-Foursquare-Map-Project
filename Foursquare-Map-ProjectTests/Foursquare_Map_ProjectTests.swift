@@ -8,7 +8,7 @@
 
 import XCTest
 
-//@testable import Foursquare_Map_Project
+@testable import Foursquare_Map_Project
 
 class Foursquare_Map_ProjectTests: XCTestCase {
 
@@ -31,20 +31,19 @@ class Foursquare_Map_ProjectTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-//    func testFourSquareSearchModel() {
-//        guard let path = Bundle.main.path(forResource: "FourSquareLocationJSON", ofType: "json") else { return }
-//        
-//        let url = URL(fileURLWithPath: path)
-//        do {
-//            let data = try Data(contentsOf: url)
-//            let testVenue = 
-//            
-//            let testVenue = try DarkSkyWeather.getForecastFromData(data: data) ?? []
-//            print(testWeather.count)
-//            XCTAssert(testWeather.count > 0, "We have \(testWeather.count) listings")
-//        } catch {
-//            print(error)
-//            XCTFail()
-//        }
+    func testFourSquareModel () {
+        guard let path = Bundle.main.path(forResource: "FourSquareLocationJSON", ofType: "json") else {return}
+        let url = URL(fileURLWithPath: path)
+        do {
+            let data = try Data(contentsOf: url)
+            
+            let testVenue = try FourSquareModel.getVenues(from: data) ?? []
+            print (testVenue.count)
+            XCTAssert(testVenue.count > 0, "We have \(testVenue.count) venues")
+        
+        } catch {
+            print(error)
+            XCTFail()
+        }
     }
 }
