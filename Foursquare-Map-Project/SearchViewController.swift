@@ -12,23 +12,34 @@ import CoreLocation
 
 class SearchViewController: UIViewController {
     
+    //MARK: - Objects
     let mainView = MainView()
     let locationManager = CLLocationManager()
     let searchInitialCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
     let searchRadius: CLLocationDistance = 5000
     
-    var venues = [VenueStruct]()
-    
-    private var currentRegion = MKCoordinateRegion() {
+    var venues = [VenueStruct]() {
         didSet {
-            getVenues(keyword: "coffee")
+            makeAnnotations()
+            mainView.collectionView.reloadData()
+            //loadPhotoInfo()
         }
     }
     
-    //    private func userSearch() -> String {
-    //       //More code here
-    //
-    //    }
+    
+    private var currentRegion = MKCoordinateRegion() {
+        didSet {
+            getVenues(keyword: "dance")
+        }
+    }
+    
+//    private func userDefaultsSearchTerm() -> String {
+//        if let searchTermFromUserDefaults = UserDefaults.standard.object(forKey: UserDefaultsKey.searchTerm) as? String {
+//            return searchTermFromUserDefaults
+//        } else {
+//            return "coffee"
+//        }
+//    }
     
     private func getVenues(keyword: String) {
         SearchAPIClient.getVenue(latitude: currentRegion.center.latitude.description, longitude: currentRegion.center.longitude.description, category: keyword) { (result) in
@@ -103,3 +114,48 @@ extension SearchViewController: CLLocationManagerDelegate {
         print("Error: \(error)")
     }
 }
+
+//extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return venues.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let collectionViewcell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
+//        let venueToSet = venues[indexPath.row]
+//        collectionViewcell.activityIndicator.startAnimating()
+//        collectionViewcell.nameLabel.text = venueToSet.name
+//        collectionViewcell.addressLabel.text = venueToSet.location.formattedAddress[0] + " \n" +  venueToSet.location.formattedAddress[1]
+//        ImageAPIClient.getImages(venueID: venueToSet.id) { (appError, imageLink) in
+//            if let appError = appError {
+//                print("imageClient - \(appError)")
+//            } else if let imageLink = imageLink {
+//                self.venues[indexPath.row].imageLink = imageLink
+//                if let imageIsInCache = ImageHelper.fetchImageFromCache(urlString: imageLink) {
+//                    DispatchQueue.main.async {
+//                        collectionViewcell.imageView.image = imageIsInCache
+//                    }
+//                } else {
+//                    ImageHelper.fetchImageFromNetwork(urlString: imageLink, completion: { (appError, image) in
+//                        if let appError = appError {
+//                            print("imageHelper error - \(appError)")
+//                        } else if let image = image {
+//                            collectionViewcell.imageView.image = image
+//                            print("searchVC - got image from network")
+//                        }
+//                    })
+//                }
+//                DispatchQueue.main.async {
+//                    collectionViewcell.activityIndicator.stopAnimating()
+//                }
+//            }
+//        }
+//        return collectionViewcell
+//    }
+//
+////    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+////        let venue = venues[indexPath.row]
+////        let destination = DetailViewController(restuarant: venue)
+////        self.navigationController?.pushViewController(destination, animated: true)
+////    }
+//}

@@ -44,10 +44,10 @@ class MainView: UIView {
     
     lazy var eventsListButton: UIButton = {
         let listButton = UIButton()
-        let image = UIImage(systemName: "list.dash")
+        let image = UIImage(systemName: "line.horizontal.3")
+        listButton.imageView?.tintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
         listButton.setImage(image, for: .normal)
 //        listButton.addTarget(self, action: #selector(listButtonPressed(sender:)), for: .touchUpInside)
-        listButton.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
         return listButton
     }()
     
@@ -59,7 +59,7 @@ class MainView: UIView {
     
             cellLayout.itemSize = CGSize.init(width: 150, height: 160)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
-//            collectionView.register(MapCollectionCell.self, forCellWithReuseIdentifier: "mapCell")
+            collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
             collectionView.backgroundColor = #colorLiteral(red: 0.8909798861, green: 0.8911294937, blue: 0.8909601569, alpha: 1)
             collectionView.layer.cornerRadius = 5.0
     return collectionView
@@ -83,9 +83,10 @@ class MainView: UIView {
         eventsListButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             eventsListButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            eventsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 365),
-            eventsListButton.widthAnchor.constraint(equalToConstant: 50),
-            eventsListButton.heightAnchor.constraint(equalToConstant: 40)])
+            eventsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 375),
+            eventsListButton.widthAnchor
+                .constraint(equalToConstant: 35),
+            eventsListButton.heightAnchor.constraint(equalToConstant: 45)])
     }
     
     private func searchConstraints() {

@@ -34,6 +34,11 @@
 		DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893623722E0C007D1685 /* SearchViewController.swift */; };
 		DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893923722E2F007D1685 /* CollectionViewController.swift */; };
 		DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E893923722E2F007D1685 /* CollectionViewController.swift */; };
+		DF32A57323779235005D58E7 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF32A57223779235005D58E7 /* SearchCollectionViewCell.swift */; };
+		DF32A57423779235005D58E7 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF32A57223779235005D58E7 /* SearchCollectionViewCell.swift */; };
+		DF32A576237795FF005D58E7 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF32A575237795FF005D58E7 /* ImageAPIClient.swift */; };
+		DF32A577237795FF005D58E7 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF32A575237795FF005D58E7 /* ImageAPIClient.swift */; };
+		DF466F402377A4B400241FA6 /* VenueImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF466F3F2377A4B400241FA6 /* VenueImages.swift */; };
 		DFD689402374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 		DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +76,9 @@
 		DF2E88CB2370D800007D1685 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DF2E893623722E0C007D1685 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Foursquare-Map-Project/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
 		DF2E893923722E2F007D1685 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		DF32A57223779235005D58E7 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		DF32A575237795FF005D58E7 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		DF466F3F2377A4B400241FA6 /* VenueImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueImages.swift; sourceTree = "<group>"; };
 		DFD6893F2374C90700A025F4 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +106,8 @@
 				DF2ABE8C2373812A00E731AD /* AppError.swift */,
 				DF2ABE8F2373814700E731AD /* ImageHelper.swift */,
 				DF2ABE922373818600E731AD /* NetworkHelper.swift */,
+				DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */,
+				DF32A575237795FF005D58E7 /* ImageAPIClient.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -154,6 +164,8 @@
 				DF2E88C42370B307007D1685 /* FourSquareLocationJSON.json */,
 				DF2E88C62370B677007D1685 /* FourSquareSearch.swift */,
 				DFD6893F2374C90700A025F4 /* LocationDelegate.swift */,
+				DF32A57223779235005D58E7 /* SearchCollectionViewCell.swift */,
+				DF466F3F2377A4B400241FA6 /* VenueImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,7 +175,6 @@
 			children = (
 				DF2E893623722E0C007D1685 /* SearchViewController.swift */,
 				DF2E893923722E2F007D1685 /* CollectionViewController.swift */,
-				DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */,
 				DF2E88A3237096A1007D1685 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -290,9 +301,12 @@
 				DF2E893A23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */,
 				DF2ABE992373A14B00E731AD /* Secret.swift in Sources */,
+				DF32A576237795FF005D58E7 /* ImageAPIClient.swift in Sources */,
 				DF2E88AA237096A1007D1685 /* Foursquare_Map_Project.xcdatamodeld in Sources */,
 				DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */,
+				DF466F402377A4B400241FA6 /* VenueImages.swift in Sources */,
 				DF2ABE9623739BB100E731AD /* SearchAPIClient.swift in Sources */,
+				DF32A57323779235005D58E7 /* SearchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,12 +316,14 @@
 			files = (
 				DF2ABE942373818600E731AD /* NetworkHelper.swift in Sources */,
 				DF2ABE9A2373A14B00E731AD /* Secret.swift in Sources */,
+				DF32A57423779235005D58E7 /* SearchCollectionViewCell.swift in Sources */,
 				DF2E88C82370B677007D1685 /* FourSquareSearch.swift in Sources */,
 				DF2E88CD2370D800007D1685 /* MainView.swift in Sources */,
 				DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */,
 				DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */,
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
 				DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */,
+				DF32A577237795FF005D58E7 /* ImageAPIClient.swift in Sources */,
 				DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */,
 				DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */,
 				DF2ABE9723739BB100E731AD /* SearchAPIClient.swift in Sources */,
