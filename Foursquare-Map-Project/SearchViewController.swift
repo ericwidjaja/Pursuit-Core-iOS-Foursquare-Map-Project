@@ -29,17 +29,17 @@ class SearchViewController: UIViewController {
     
     private var currentRegion = MKCoordinateRegion() {
         didSet {
-            getVenues(keyword: "dance")
+            getVenues(keyword: userDefaultsSearchTerm())
         }
     }
     
-//    private func userDefaultsSearchTerm() -> String {
-//        if let searchTermFromUserDefaults = UserDefaults.standard.object(forKey: UserDefaultsKey.searchTerm) as? String {
-//            return searchTermFromUserDefaults
-//        } else {
-//            return "coffee"
-//        }
-//    }
+    private func userDefaultsSearchTerm() -> String {
+        if let searchTermFromUserDefaults = UserDefaults.standard.object(forKey: UserDefault.searchTerm) as? String {
+            return searchTermFromUserDefaults
+        } else {
+            return "coffee"
+        }
+    }
     
     private func getVenues(keyword: String) {
         SearchAPIClient.getVenue(latitude: currentRegion.center.latitude.description, longitude: currentRegion.center.longitude.description, category: keyword) { (result) in
@@ -94,6 +94,14 @@ class SearchViewController: UIViewController {
         }
     }
 }
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let searchText = searchBar.text else { return }
+        getVenues(keyword: searchText)
+        UserDefaults.standard.set(searchText, forKey: UserDefault.searchTerm)
+    }
+}
 
 
 extension SearchViewController: CLLocationManagerDelegate {
@@ -114,6 +122,7 @@ extension SearchViewController: CLLocationManagerDelegate {
         print("Error: \(error)")
     }
 }
+
 
 //extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
