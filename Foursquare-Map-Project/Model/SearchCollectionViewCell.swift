@@ -10,15 +10,15 @@ import UIKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
     lazy var activityIndicator: UIActivityIndicatorView = {
-        let ai = UIActivityIndicatorView()
-        ai.style = .medium
-        ai.hidesWhenStopped = true
-        return ai
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
     }()
     
     lazy var imageView: UIImageView = {
         let venueView = UIImageView()
-        venueView.image = UIImage.init(named: "coffee")
+        venueView.image = UIImage.init(named: "burgers")
         return venueView
         
     }()
@@ -26,10 +26,10 @@ class SearchCollectionViewCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let venueName = UILabel()
         venueName.numberOfLines = 0
-        venueName.backgroundColor = #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1)
+        venueName.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         venueName.textAlignment = .center
-        venueName.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium)
-        venueName.font = UIFont(name: "Copperplate-Bold", size: 16)
+        venueName.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
+        venueName.font = UIFont(name: "Copperplate-Bold", size: 14)
         venueName.textColor = .white
         return venueName
         
@@ -38,11 +38,10 @@ class SearchCollectionViewCell: UICollectionViewCell {
     lazy var addressLabel: UILabel = {
         let venueAddress = UILabel()
         venueAddress.numberOfLines = 0
-        venueAddress.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+        venueAddress.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         venueAddress.textAlignment = .center
-        //restuarantAddress.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
         venueAddress.textColor = .white
-        venueAddress.font = UIFont(name: "Copperplate-Bold", size: 16)
+        venueAddress.font = UIFont(name: "Copperplate-Bold", size: 14)
         return venueAddress
     }()
     
@@ -54,40 +53,46 @@ class SearchCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         setConstraints()
     }
+    
     private func setConstraints() {
-        
+        venueImageConstraints()
+        venueNameConstraints()
+        venueAddressConstraints()
+        venueActivityIndicator()
+    }
+    //MARK: - CollView Cell Constraints
+    private func venueImageConstraints() {
         addSubview(imageView)
-        addSubview(addressLabel)
-        addSubview(nameLabel)
-        addSubview(activityIndicator)
-        
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        addressLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+        imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+        imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
+        imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)])}
+    
+    private func venueNameConstraints(){
+        addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints =  false
+        NSLayoutConstraint.activate([
+        nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
+        nameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)])}
+        
+    private func venueAddressConstraints() {
+        addSubview(addressLabel)
+        addressLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
+        addressLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+        addressLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
+        addressLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])}
+    
+    private func venueActivityIndicator(){
+        addSubview(activityIndicator)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-        
-        
-        nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        nameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1).isActive = true
-        
-        
-        addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5).isActive = true
-        addressLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        addressLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        addressLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-        
-        activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor, constant: 0).isActive = true
-        activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: 0).isActive = true
-        
+        NSLayoutConstraint.activate([
+        activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor, constant: 0),
+        activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: 0)])
     }
 }
-
-

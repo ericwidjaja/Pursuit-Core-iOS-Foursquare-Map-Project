@@ -12,7 +12,6 @@ enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
 }
-
 class NetworkHelper {
     
     // MARK: - Static Properties
@@ -33,7 +32,7 @@ class NetworkHelper {
         urlSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data else {
-                completionHandler(.failure(.noDataReceived))
+                    completionHandler(.failure(.noDataReceived))
                     return
                 }
                 

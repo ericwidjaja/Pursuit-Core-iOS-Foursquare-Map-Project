@@ -25,11 +25,8 @@ struct FourSquareModel: Codable {
     }
 }
 
-
 struct ResponseWrapper: Codable {
     let venues: [VenueStruct]
-    
-
 }
 
 struct VenueStruct: Codable {

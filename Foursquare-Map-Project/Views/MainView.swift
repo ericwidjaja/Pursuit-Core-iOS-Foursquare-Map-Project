@@ -56,19 +56,16 @@ class MainView: UIView {
         
         let cellLayout = UICollectionViewFlowLayout()
             cellLayout.scrollDirection = .horizontal
-            cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 2, bottom: 0, right: 2)
+            cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 1, bottom: 0, right: 1)
     
-            cellLayout.itemSize = CGSize.init(width: 175, height: 200)
+            cellLayout.itemSize = CGSize.init(width: 165, height: 200)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
             collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
             collectionView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
             collectionView.layer.cornerRadius = 5.0
     return collectionView
     }()
-    
 
-
-    
     func setConstraints() {
         searchConstraints()
         userLocationConstraints()
@@ -117,12 +114,12 @@ class MainView: UIView {
             mapView.topAnchor.constraint(equalTo: userLocation.bottomAnchor, constant: 0),
             mapView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
             mapView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1),
-            mapView.heightAnchor.constraint(equalToConstant: 565)])
+            mapView.heightAnchor.constraint(equalToConstant: 470)])
     }
     private func collectionViewConstraints() {
         addSubview(venuesCollectionView)
         venuesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([venuesCollectionView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 1),                            venuesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1), venuesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1), venuesCollectionView.heightAnchor.constraint(equalToConstant: 161)
+        NSLayoutConstraint.activate([venuesCollectionView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 1),                            venuesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1), venuesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1), venuesCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
