@@ -43,6 +43,8 @@
 		DF466F4F2377C5C600241FA6 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF466F4D2377C5C600241FA6 /* UserDefault.swift */; };
 		DF6FF9812379022600B6D719 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FF9802379022600B6D719 /* DetailVC.swift */; };
 		DF6FF9822379022600B6D719 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FF9802379022600B6D719 /* DetailVC.swift */; };
+		DF6FF984237923EC00B6D719 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FF983237923EC00B6D719 /* DetailView.swift */; };
+		DF6FF985237923EC00B6D719 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FF983237923EC00B6D719 /* DetailView.swift */; };
 		DFD689402374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 		DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,7 @@
 		DF466F3F2377A4B400241FA6 /* VenueImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueImages.swift; sourceTree = "<group>"; };
 		DF466F4D2377C5C600241FA6 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		DF6FF9802379022600B6D719 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		DF6FF983237923EC00B6D719 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DFD6893F2374C90700A025F4 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				DF2E88CB2370D800007D1685 /* MainView.swift */,
+				DF6FF983237923EC00B6D719 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +315,7 @@
 				DF2E88A2237096A1007D1685 /* SceneDelegate.swift in Sources */,
 				DF2ABE992373A14B00E731AD /* Secret.swift in Sources */,
 				DF32A576237795FF005D58E7 /* ImageAPIClient.swift in Sources */,
+				DF6FF984237923EC00B6D719 /* DetailView.swift in Sources */,
 				DF2E88AA237096A1007D1685 /* Foursquare_Map_Project.xcdatamodeld in Sources */,
 				DF2E88C72370B677007D1685 /* FourSquareSearch.swift in Sources */,
 				DF466F4E2377C5C600241FA6 /* UserDefault.swift in Sources */,
@@ -333,6 +338,7 @@
 				DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */,
 				DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */,
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
+				DF6FF985237923EC00B6D719 /* DetailView.swift in Sources */,
 				DF466F4F2377C5C600241FA6 /* UserDefault.swift in Sources */,
 				DF2E893B23722E2F007D1685 /* CollectionViewController.swift in Sources */,
 				DF32A577237795FF005D58E7 /* ImageAPIClient.swift in Sources */,

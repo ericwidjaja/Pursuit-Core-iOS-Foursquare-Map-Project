@@ -19,13 +19,6 @@ class SearchViewController: UIViewController {
     let searchRadius: CLLocationDistance = 5000
     
     var venues = [VenueStruct]()
-//    {
-//        didSet {
-//            makeAnnotations()
-//            mainView.venuesCollectionView.reloadData()
-//            //loadPhotoInfo()
-//        }
-//    }
     
     
     private var currentRegion = MKCoordinateRegion() {
