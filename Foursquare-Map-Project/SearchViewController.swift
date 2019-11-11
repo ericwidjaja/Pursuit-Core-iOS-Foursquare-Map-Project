@@ -141,9 +141,9 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let venue = venues[indexPath.row]
-//        let destination = DetailVC(coder: venue)
-//        self.navigationController?.pushViewController(destination, animated: true)
+        let destinationVC = DetailVC()
+        destinationVC.venue = venues[indexPath.row]
+        present(destinationVC, animated: true, completion: nil)
     }
 }
 

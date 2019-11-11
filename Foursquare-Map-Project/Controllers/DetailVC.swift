@@ -9,6 +9,16 @@
 import UIKit
 
 class DetailVC: UIViewController {
+ 
+    //MARK: - Properties
+    var venue: VenueStruct?
+    
+    //MARK: - Objects
+    var navBar: UINavigationBar = {
+        let bar = UINavigationBar()
+        bar.barTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        return bar
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

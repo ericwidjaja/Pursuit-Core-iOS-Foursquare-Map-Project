@@ -28,8 +28,9 @@ class SearchCollectionViewCell: UICollectionViewCell {
         venueName.numberOfLines = 0
         venueName.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         venueName.textAlignment = .center
-        venueName.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
-        venueName.font = UIFont(name: "Copperplate-Bold", size: 14)
+        venueName.adjustsFontSizeToFitWidth = true
+        venueName.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.heavy)
+        venueName.font = UIFont(name: "Rockwell-Bold", size: 14)
         venueName.textColor = .white
         return venueName
         
@@ -41,7 +42,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         venueAddress.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         venueAddress.textAlignment = .center
         venueAddress.textColor = .white
-        venueAddress.font = UIFont(name: "Copperplate-Bold", size: 14)
+        venueAddress.font = UIFont(name: "Rockwell", size: 13)
         return venueAddress
     }()
     
@@ -68,7 +69,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
         imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
-        imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)])}
+        imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)])}
     
     private func venueNameConstraints(){
         addSubview(nameLabel)
@@ -77,7 +78,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
         nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
         nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
-        nameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)])}
+        nameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)])}
         
     private func venueAddressConstraints() {
         addSubview(addressLabel)
