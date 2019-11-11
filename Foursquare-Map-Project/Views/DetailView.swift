@@ -26,7 +26,7 @@ class DetailView: UIView {
     var venue: VenueStruct?
     
     //MARK: - Objects
-    var navBar: UINavigationBar = {
+    var navigationBar: UINavigationBar = {
         let bar = UINavigationBar()
         bar.barTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
         return bar
@@ -54,7 +54,8 @@ class DetailView: UIView {
         venueNameLabel.numberOfLines = 0
         venueNameLabel.adjustsFontSizeToFitWidth = true
         venueNameLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        venueNameLabel.layer.cornerRadius = 5
+        venueNameLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         return venueNameLabel
     }()
     lazy var detailVenueAddress: UITextView = {
@@ -64,12 +65,20 @@ class DetailView: UIView {
         venueAddressTextView.font = UIFont.init(name: "Rockwell", size: 18)
         venueAddressTextView.isEditable = false
         venueAddressTextView.adjustsFontForContentSizeCategory = true
+        venueAddressTextView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        venueAddressTextView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return venueAddressTextView
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
     lazy var detailVenueImage: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        image.backgroundColor = .clear
         return image
     }()
     
@@ -83,15 +92,15 @@ class DetailView: UIView {
         
     }
     private func setNavBarConstraints() {
-        addSubview(navBar)
-        navBar.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(navigationBar)
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            navBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            navBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            navBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)])
+            navigationBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            navigationBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            navigationBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)])
     }
     private func setNavigationItems() {
-        navBar.items = [navItem]
+        navigationBar.items = [navItem]
         navItem.leftBarButtonItem = backButton
         navItem.rightBarButtonItem = addButton
     }
@@ -100,10 +109,10 @@ class DetailView: UIView {
         addSubview(detailVenueName)
         detailVenueName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailVenueName.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 250),
+            detailVenueName.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5),
             detailVenueName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             detailVenueName.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            detailVenueName.heightAnchor.constraint(equalToConstant: 330)])
+            detailVenueName.heightAnchor.constraint(equalToConstant: 100)])
     }
     private func setAddressConstraints() {
         addSubview(detailVenueAddress)
@@ -118,9 +127,9 @@ class DetailView: UIView {
         addSubview(detailVenueImage)
         detailVenueImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            detailVenueImage.topAnchor.constraint(equalTo: detailVenueAddress.bottomAnchor),
-            detailVenueImage.leadingAnchor.constraint(equalTo: detailVenueAddress.leadingAnchor),
-            detailVenueImage.trailingAnchor.constraint(equalTo: detailVenueAddress.trailingAnchor),
+            detailVenueImage.topAnchor.constraint(equalTo: detailVenueAddress.bottomAnchor, constant: 5),
+            detailVenueImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            detailVenueImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             detailVenueImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
     }
     
