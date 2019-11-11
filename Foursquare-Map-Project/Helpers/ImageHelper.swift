@@ -9,53 +9,80 @@
 import Foundation
 import UIKit
 
+//class ImageHelper {
+//    private init() {
+//        imageCache = NSCache<NSString, UIImage>()
+//        imageCache.countLimit = 100 // number of objects
+//        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB used
+//    }
+//    
+//    // MARK: - Static Properties
+//    static let shared = ImageHelper()
+//    
+//     private var imageCache: NSCache<NSString, UIImage>
+//    
+//    // MARK: - Internal Methods
+//    func getImage(urlStr: String, completionHandler: @escaping (Result<UIImage,AppError>) -> ()) {
+//        
+//        guard let url = URL(string: urlStr) else {
+//            completionHandler(.failure(.badURL))
+//            return
+//        }
+//        
+//        URLSession.shared.dataTask(with: url) { (data, _, error) in
+//            guard error == nil else {
+//                completionHandler(.failure(.noDataReceived))
+//                return
+//            }
+//            
+//            guard let data = data else {
+//                completionHandler(.failure(.noDataReceived))
+//                return
+//            }
+//            
+//            guard let image = UIImage(data: data) else {
+//                completionHandler(.failure(.notAnImage))
+//                return
+//            }
+//            //Sets the image to the cache with the string as the key.
+//            ImageHelper.shared.imageCache.setObject(image, forKey: urlStr as NSString)
+//            completionHandler(.success(image))
+//            
+//            } .resume()
+//        
+//    }
+//    
+//    
+//    public func image(forKey key: NSString) -> UIImage? {
+//      return imageCache.object(forKey: key)
+//        
+//    }
+//    
+//}
+
 class ImageHelper {
-    private init() {
-        imageCache = NSCache<NSString, UIImage>()
-        imageCache.countLimit = 100 // number of objects
-        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB used
-    }
+    private init() {}
     
-    // MARK: - Static Properties
-    static let shared = ImageHelper()
+    private static var cache = NSCache<NSString, UIImage>()
     
-     private var imageCache: NSCache<NSString, UIImage>
-    
-    // MARK: - Internal Methods
-    func getImage(urlStr: String, completionHandler: @escaping (Result<UIImage,AppError>) -> ()) {
-        
-        guard let url = URL(string: urlStr) else {
-            completionHandler(.failure(.badURL))
-            return
+    static func fetchImageFromNetwork(urlString: String, completion: @escaping (AppError?, UIImage?) -> Void) {
+        NetworkHelper.shared.performDataTask(endpointURLString: urlString, httpMethod: "GET", httpBody: nil) { (appError, data ) in
+            if let appError = appError {
+                completion(appError, nil)
+            } else if let data = data {
+                DispatchQueue.global().async {
+                    if let image = UIImage(data: data) {
+                        cache.setObject(image, forKey: urlString as NSString)
+                        DispatchQueue.main.async {
+                            completion(nil, image)
+                        }
+                    }
+                }
+            }
         }
-        
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard error == nil else {
-                completionHandler(.failure(.noDataReceived))
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(.failure(.noDataReceived))
-                return
-            }
-            
-            guard let image = UIImage(data: data) else {
-                completionHandler(.failure(.notAnImage))
-                return
-            }
-            //Sets the image to the cache with the string as the key.
-            ImageHelper.shared.imageCache.setObject(image, forKey: urlStr as NSString)
-            completionHandler(.success(image))
-            
-            } .resume()
-        
     }
     
-    
-    public func image(forKey key: NSString) -> UIImage? {
-      return imageCache.object(forKey: key)
-        
+    static func fetchImageFromCache(urlString: String) -> UIImage? {
+        return cache.object(forKey: urlString as NSString)
     }
-    
 }

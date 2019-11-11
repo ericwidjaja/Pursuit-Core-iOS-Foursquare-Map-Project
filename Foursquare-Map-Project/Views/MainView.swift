@@ -15,22 +15,23 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         setConstraints()
+    self.venuesCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
 
     lazy var mapView: MKMapView = {
         let map = MKMapView()
-        map.layer.cornerRadius = 1.0
+        map.layer.cornerRadius = 3.0
         map.showsUserLocation = true
         map.mapType = .standard
         return map
     }()
     
-    lazy var search: UISearchBar = {
+    lazy var venueSearch: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "search for venue"
         return searchBar
@@ -38,7 +39,7 @@ class MainView: UIView {
     
     lazy var userLocation: UISearchBar = {
         let locationBar = UISearchBar()
-        locationBar.placeholder = "New York, NY"
+        locationBar.placeholder = "Long Island City, NY"
         return locationBar
     }()
     
@@ -51,16 +52,16 @@ class MainView: UIView {
         return listButton
     }()
     
-    lazy var collectionView: UICollectionView = {
+    lazy var venuesCollectionView: UICollectionView = {
         
         let cellLayout = UICollectionViewFlowLayout()
             cellLayout.scrollDirection = .horizontal
             cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 2, bottom: 0, right: 2)
     
-            cellLayout.itemSize = CGSize.init(width: 150, height: 160)
+            cellLayout.itemSize = CGSize.init(width: 175, height: 200)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
             collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
-            collectionView.backgroundColor = #colorLiteral(red: 0.8909798861, green: 0.8911294937, blue: 0.8909601569, alpha: 1)
+            collectionView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
             collectionView.layer.cornerRadius = 5.0
     return collectionView
     }()
@@ -90,13 +91,13 @@ class MainView: UIView {
     }
     
     private func searchConstraints() {
-        addSubview(search)
-        search.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(venueSearch)
+        venueSearch.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            search.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            search.leadingAnchor.constraint(equalTo: leadingAnchor),
-            search.widthAnchor.constraint(equalToConstant: 360),
-            search.heightAnchor.constraint(equalToConstant: 45)])
+            venueSearch.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            venueSearch.leadingAnchor.constraint(equalTo: leadingAnchor),
+            venueSearch.widthAnchor.constraint(equalToConstant: 360),
+            venueSearch.heightAnchor.constraint(equalToConstant: 45)])
         
     }
     
@@ -104,7 +105,7 @@ class MainView: UIView {
         addSubview(userLocation)
         userLocation.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            userLocation.topAnchor.constraint(equalTo: search.bottomAnchor, constant: 0),
+            userLocation.topAnchor.constraint(equalTo: venueSearch.bottomAnchor, constant: 0),
             userLocation.leadingAnchor.constraint(equalTo: leadingAnchor),
             userLocation.trailingAnchor.constraint(equalTo: trailingAnchor),
             userLocation.heightAnchor.constraint(equalToConstant: 45)])
@@ -119,9 +120,9 @@ class MainView: UIView {
             mapView.heightAnchor.constraint(equalToConstant: 565)])
     }
     private func collectionViewConstraints() {
-        addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 1),                            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1), collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1), collectionView.heightAnchor.constraint(equalToConstant: 161)
+        addSubview(venuesCollectionView)
+        venuesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([venuesCollectionView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 1),                            venuesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1), venuesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1), venuesCollectionView.heightAnchor.constraint(equalToConstant: 161)
         ])
     }
 }
