@@ -12,7 +12,6 @@ import CoreLocation
 
 class SearchViewController: UIViewController {
     
-    //MARK: - Objects
     let mainView = MainView()
     let locationManager = CLLocationManager()
     let searchInitialCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
@@ -35,7 +34,6 @@ class SearchViewController: UIViewController {
         }
     }
     
-    
     private func getVenues(keyword: String) {
     SearchAPIClient.getVenue(latitude: currentRegion.center.latitude.description, longitude: currentRegion.center.longitude.description, category: keyword) { (result) in
         DispatchQueue.main.async {
@@ -49,6 +47,22 @@ class SearchViewController: UIViewController {
                 }
             }
         }
+    }
+    lazy var eventsListButton: UIButton = {
+        let listButton = UIButton()
+        let image = UIImage(systemName: "line.horizontal.3")
+        listButton.imageView?.tintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        listButton.setImage(image, for: .normal)
+        listButton.addTarget(self, action: #selector(listButtonPressed), for: .touchUpInside)
+//        listButton.addTarget(self, action: #selector(listButtonPressed(sender:)), for: .touchUpInside)
+        return listButton
+    }()
+    
+    @objc func listButtonPressed() {
+        let tableVC = VenuesListTableVC()
+        self.modalPresentationStyle = .fullScreen
+        tableVC.venuesListForTableVC = venues
+        present(tableVC, animated: true, completion: nil)
     }
     
     private func makeAnnotations() {

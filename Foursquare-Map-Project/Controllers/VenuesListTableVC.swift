@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VenuesListTableVC.swift
 //  Foursquare-Map-Project
 //
 //  Created by Eric Widjaja on 11/4/19.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class VenuesListTableVC: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
