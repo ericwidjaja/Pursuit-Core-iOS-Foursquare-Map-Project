@@ -19,8 +19,8 @@ class SearchViewController: UIViewController {
     let searchRadius: CLLocationDistance = 5000
     
     var venues = [VenueStruct]()
-
-    private var currentRegion = MKCoordinateRegion() {
+    var annotations = [MKAnnotation]()
+    var currentRegion = MKCoordinateRegion() {
         didSet {
             getVenues(keyword: userDefaultsSearchTerm())
         }
@@ -75,8 +75,10 @@ class SearchViewController: UIViewController {
         setMainView()
         checkLocationPermission()
         locationManager.delegate = self
+        mainView.mapView.delegate = self
         mainView.venuesCollectionView.delegate = self
         mainView.venuesCollectionView.dataSource = self
+        mainView.venueSearch.delegate = self
     }
     
     private func checkLocationPermission() {
@@ -137,8 +139,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         present(destinationVC, animated: true, completion: nil)
     }
 }
-
-    
+ 
 //MARK: SearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -182,5 +183,32 @@ extension SearchViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error)")
+    }
+    
+}
+
+extension SearchViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Callouts") as? MKMarkerAnnotationView
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Callouts")
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+        } else {
+            annotationView?.annotation = annotation
+        }
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let calloutClicked = view.annotation else {
+            fatalError("callout is nil")
+        }
+        if let venueName = calloutClicked.title, let venue = (venues.filter{ $0.name == venueName}).first {
+            let destination = DetailVC()
+            self.navigationController?.pushViewController(destination, animated: true)
+        }
     }
 }
