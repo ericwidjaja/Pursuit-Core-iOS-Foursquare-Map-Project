@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
     //MARK: - Objects
     let mainView = MainView()
     let locationManager = CLLocationManager()
-    let searchCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
+    var searchCoordinates = CLLocationCoordinate2D(latitude: 40.742442, longitude: -73.941235)
     let searchRadius: CLLocationDistance = 5000
     
     var venues = [VenueStruct]()
@@ -60,6 +60,11 @@ class SearchViewController: UIViewController {
             mainView.mapView.addAnnotation(newAnnotation)
         }
     }
+    
+    private func mapZoomIn(locationCoordinate: CLLocation) {
+        let coordinateRegion = MKCoordinateRegion.init(center: locationCoordinate.coordinate, latitudinalMeters: self.searchRadius * 1.5, longitudinalMeters: self.searchRadius * 1.5)
+        self.mainView.mapView.setRegion(coordinateRegion, animated: true)
+    }
 
     private func setMainView() {
         view.addSubview(mainView)
@@ -69,16 +74,19 @@ class SearchViewController: UIViewController {
         mainView.mapView.setRegion(currentRegion, animated: true)
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
-    
+
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setMainView()
         checkLocationPermission()
         locationManager.delegate = self
         mainView.mapView.delegate = self
+        mainView.mapView.userTrackingMode = .follow
         mainView.venuesCollectionView.delegate = self
         mainView.venuesCollectionView.dataSource = self
         mainView.venueSearch.delegate = self
+        mainView.userLocation.delegate = self
     }
     
     private func checkLocationPermission() {
@@ -147,35 +155,46 @@ extension SearchViewController: UISearchBarDelegate {
         return true
     }
     
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        guard let searchText = searchBar.text else { return }
-        getVenues(keyword: searchText)
-        UserDefaults.standard.set(searchText, forKey: UserDefault.searchTerm)
+        switch searchBar {
+        case mainView.venueSearch:
+            searchBar.resignFirstResponder()
+            guard let searchText = searchBar.text else { return }
+            getVenues(keyword: searchText)
+            UserDefaults.standard.set(searchText, forKey: UserDefault.searchTerm)
+        default:
+            print("more code here")
+            //update search bar geo
+        }
+        
     }
 }
 
-
 extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Initial-currentRegion")
+        print("Update location: \(locations)")
         currentRegion = MKCoordinateRegion()
         if let currentLocation = locations.last {
-        currentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+        currentRegion = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 250, longitudinalMeters: 250)
                 
             } else {
-                currentRegion = MKCoordinateRegion(center: searchCoordinates, latitudinalMeters: 500, longitudinalMeters: 500)
+                currentRegion = MKCoordinateRegion(center: searchCoordinates, latitudinalMeters: 250, longitudinalMeters: 250)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
+            mainView.mapView.showsUserLocation = true
             locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//            mapZoomIn(locationCoordinate: )
         default:
             break
         }

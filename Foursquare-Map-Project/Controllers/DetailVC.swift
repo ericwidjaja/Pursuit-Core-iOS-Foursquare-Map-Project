@@ -13,7 +13,28 @@ class DetailVC: UIViewController {
     //MARK: - Properties
     let detailView = DetailView()
     var venue: VenueStruct!
-
+    
+    lazy var addButton: UIBarButtonItem = {
+           let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
+           add.tintColor = .white
+           return add
+       }()
+    
+    lazy var backButton: UIBarButtonItem = {
+        let backSearchVC = UIBarButtonItem(barButtonSystemItem: .rewind, target: self, action: #selector(backButtonPressed))
+        backSearchVC.tintColor = .white
+        return backSearchVC
+    }()
+    
+    @objc func backButtonPressed(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+        @objc func addButtonPressed() {
+    //        let addOrCreateVC = AddOrCreateVC()
+    //        addOrCreateVC.venue = venue
+    //        present(addOrCreateVC, animated: true, completion: nil)
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +42,10 @@ class DetailVC: UIViewController {
         view.addSubview(detailView)
         detailView.detailVenueName.text = venue.name
         detailView.detailVenueAddress.text = venue.location.formattedAddress[0] + "\n" + venue.location.formattedAddress[1]
+        detailView.navItem.leftBarButtonItem = backButton
+        detailView.navItem.rightBarButtonItem = addButton
+    
+        
         getVenueImage()
     }
     

@@ -32,20 +32,15 @@ class DetailView: UIView {
         return bar
     }()
     var navItem: UINavigationItem = {
-        let item = UINavigationItem(title: "D E T A I L S")
+        let item = UINavigationItem(title: "DETAILS VIEW")
         return item
     }()
-    lazy var addButton: UIBarButtonItem = {
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
-        add.tintColor = .white
-        return add
-    }()
     
-    lazy var backButton: UIBarButtonItem = {
-        let backToSearch = UIBarButtonItem(barButtonSystemItem: .rewind, target: self, action: #selector(backButtonPressed))
-        backToSearch.tintColor = .white
-        return backToSearch
-    }()
+//    lazy var addButton: UIBarButtonItem = {
+//        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
+//        add.tintColor = .white
+//        return add
+//    }()
     
     lazy var detailVenueName: UILabel = {
         let venueNameLabel = UILabel()
@@ -101,8 +96,6 @@ class DetailView: UIView {
     }
     private func setNavigationItems() {
         navigationBar.items = [navItem]
-        navItem.leftBarButtonItem = backButton
-        navItem.rightBarButtonItem = addButton
     }
     
     private func setNameConstraints() {
@@ -139,14 +132,8 @@ class DetailView: UIView {
         detailVenueAddress.text = venue.location.address
     }
     
-    @objc func backButtonPressed(sender: UIButton){
-//        dismiss(animated: true, completion: nil)
-    }
-    @objc func addButtonPressed() {
-//        let addOrCreateVC = AddOrCreateVC()
-//        addOrCreateVC.venue = venue
-//        present(addOrCreateVC, animated: true, completion: nil)
-    }
+    
+
     
 
 
