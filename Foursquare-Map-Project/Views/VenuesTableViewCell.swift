@@ -9,12 +9,6 @@
 import UIKit
 
 class VenuesTableViewCell: UITableViewCell {
-    
-    var navigationBar: UINavigationBar = {
-        let bar = UINavigationBar()
-        bar.barTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        return bar
-    }()
 
     var cellNameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -44,27 +38,18 @@ class VenuesTableViewCell: UITableViewCell {
         return addressTextView
     }()
     
-    
     var cellImage: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 150))
+        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 130))
         image.backgroundColor = #colorLiteral(red: 0.810403645, green: 0.8105404973, blue: 0.8103856444, alpha: 1)
         return image
     }()
+    
     func setTableViewCellConstraints() {
         setCellImageConstraints()
         setCellNameConstraints()
         setCellAddressConstraints()
     }
-    
-    private func setNavBarConstraints() {
-        addSubview(navigationBar)
-        navigationBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            navigationBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            navigationBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            navigationBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)])
-    }
-    
+
     private func setCellNameConstraints() {
         contentView.addSubview(cellNameLabel)
         cellNameLabel.translatesAutoresizingMaskIntoConstraints = false

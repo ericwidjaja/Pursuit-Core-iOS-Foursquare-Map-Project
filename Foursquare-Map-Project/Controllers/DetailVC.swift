@@ -44,8 +44,6 @@ class DetailVC: UIViewController {
         detailView.detailVenueAddress.text = venue.location.formattedAddress[0] + "\n" + venue.location.formattedAddress[1]
         detailView.navItem.leftBarButtonItem = backButton
         detailView.navItem.rightBarButtonItem = addButton
-    
-        
         getVenueImage()
     }
     

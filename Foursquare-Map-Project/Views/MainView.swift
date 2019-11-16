@@ -48,16 +48,14 @@ class MainView: UIView {
         let image = UIImage(systemName: "line.horizontal.3")
         listButton.imageView?.tintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
         listButton.setImage(image, for: .normal)
-//        listButton.addTarget(self, action: #selector(listButtonPressed(sender:)), for: .touchUpInside)
         return listButton
     }()
-    
+
     lazy var venuesCollectionView: UICollectionView = {
         
         let cellLayout = UICollectionViewFlowLayout()
             cellLayout.scrollDirection = .horizontal
             cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 1, bottom: 0, right: 1)
-    
             cellLayout.itemSize = CGSize.init(width: 165, height: 200)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
             collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")

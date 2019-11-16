@@ -29,7 +29,7 @@ class SearchViewController: UIViewController {
     @objc func listButtonPressed() {
         let tableVC = VenuesListTableVC()
         self.modalPresentationStyle = .fullScreen
-        tableVC.venuesForTable = venues
+        tableVC.tblViewCellVenues = venues
         present(tableVC, animated: true, completion: nil)
     }
     

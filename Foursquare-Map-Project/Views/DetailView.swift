@@ -31,16 +31,11 @@ class DetailView: UIView {
         bar.barTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
         return bar
     }()
+    
     var navItem: UINavigationItem = {
         let item = UINavigationItem(title: "DETAILS VIEW")
         return item
     }()
-    
-//    lazy var addButton: UIBarButtonItem = {
-//        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
-//        add.tintColor = .white
-//        return add
-//    }()
     
     lazy var detailVenueName: UILabel = {
         let venueNameLabel = UILabel()
@@ -50,9 +45,9 @@ class DetailView: UIView {
         venueNameLabel.adjustsFontSizeToFitWidth = true
         venueNameLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         venueNameLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
         return venueNameLabel
     }()
+    
     lazy var detailVenueAddress: UITextView = {
         let venueAddressTextView = UITextView()
         venueAddressTextView.dataDetectorTypes = [.address, .phoneNumber]
@@ -131,10 +126,5 @@ class DetailView: UIView {
         detailVenueName.text = venue.name
         detailVenueAddress.text = venue.location.address
     }
-    
-    
-
-    
-
 
 }
