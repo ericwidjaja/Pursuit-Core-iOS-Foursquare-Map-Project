@@ -45,9 +45,9 @@ class MainView: UIView {
     
     lazy var eventsListButton: UIButton = {
         let listButton = UIButton()
-        let image = UIImage(systemName: "line.horizontal.3")
-        listButton.imageView?.tintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        listButton.setImage(image, for: .normal)
+        let listButtonImageSetting = UIImage.SymbolConfiguration(pointSize: 40, weight: UIImage.SymbolWeight.semibold)
+        listButton.setImage(UIImage(systemName: "line.horizontal.3", withConfiguration: listButtonImageSetting), for: .normal)
+        listButton.imageView?.tintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         return listButton
     }()
 
@@ -79,9 +79,9 @@ class MainView: UIView {
         eventsListButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             eventsListButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            eventsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 375),
+            eventsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 365),
             eventsListButton.widthAnchor
-                .constraint(equalToConstant: 35),
+                .constraint(equalToConstant: 40),
             eventsListButton.heightAnchor.constraint(equalToConstant: 45)])
     }
     
