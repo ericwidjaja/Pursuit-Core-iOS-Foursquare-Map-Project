@@ -25,6 +25,13 @@ class SearchViewController: UIViewController {
             getVenues(keyword: userDefaultsSearchTerm())
         }
     }
+ 
+    @objc func listButtonPressed() {
+        let tableVC = VenuesListTableVC()
+        self.modalPresentationStyle = .fullScreen
+        tableVC.venuesForTable = venues
+        present(tableVC, animated: true, completion: nil)
+    }
     
     private func userDefaultsSearchTerm() -> String {
         if let searchTermFromUserDefaults = UserDefaults.standard.object(forKey: UserDefault.searchTerm) as? String {
@@ -74,13 +81,14 @@ class SearchViewController: UIViewController {
         mainView.mapView.setRegion(currentRegion, animated: true)
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
-
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setMainView()
         checkLocationPermission()
         locationManager.delegate = self
+        mainView.eventsListButton.addTarget(self, action: #selector(listButtonPressed), for: .touchUpInside)
         mainView.mapView.delegate = self
         mainView.mapView.userTrackingMode = .follow
         mainView.venuesCollectionView.delegate = self
@@ -154,8 +162,7 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = true
         return true
     }
-    
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
