@@ -10,17 +10,18 @@ import UIKit
 
 class FaveCollectionVC: UIViewController {
     
-    var venuesCollections = [FaveCollections]() {
+    private var venuesCollections = [FaveCollections]() {
         didSet {
+            
             venuesCollectionsCV.reloadData()}
     }
     
     var venuesCollectionsCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 150, height: 150)
+        layout.estimatedItemSize = CGSize(width: 175, height: 120)
         let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collection.backgroundColor = .white
-        collection.register(FavoritesCellCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
+        collection.backgroundColor = .darkGray
+        collection.register(FavoritesCellCollectionViewCell.self, forCellWithReuseIdentifier: "faveCell")
         return collection
     }()
     
@@ -46,6 +47,7 @@ class FaveCollectionVC: UIViewController {
         backSearchVC.tintColor = .white
         return backSearchVC
     }()
+    
     //MARK: - SetUpConstraints
     private func setFaveCollection() {
         setDelegates()
@@ -107,8 +109,10 @@ class FaveCollectionVC: UIViewController {
         venuesCollectionsCV.delegate = self
         venuesCollectionsCV.dataSource = self
     }
+    
     private func loadFaveCollection() {
         print("more code here - persistence")
+        do { let persistedCollections = try CollectionPersistence.helper.getVenues}
     }
 
 }
@@ -116,7 +120,7 @@ class FaveCollectionVC: UIViewController {
 
 extension FaveCollectionVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as? FavoritesCellCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "faveCell", for: indexPath) as? FavoritesCellCollectionViewCell else {
             return UICollectionViewCell()
         }
         let collection = venuesCollections[indexPath.row]
