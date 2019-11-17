@@ -37,7 +37,7 @@ class MainView: UIView {
         return searchBar
     }()
     
-    lazy var userLocation: UISearchBar = {
+    lazy var userLocationSearch: UISearchBar = {
         let locationBar = UISearchBar()
         locationBar.placeholder = "Long Island City, NY"
         return locationBar
@@ -97,19 +97,19 @@ class MainView: UIView {
     }
     
     private func userLocationConstraints() {
-        addSubview(userLocation)
-        userLocation.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(userLocationSearch)
+        userLocationSearch.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            userLocation.topAnchor.constraint(equalTo: venueSearch.bottomAnchor, constant: 0),
-            userLocation.leadingAnchor.constraint(equalTo: leadingAnchor),
-            userLocation.trailingAnchor.constraint(equalTo: trailingAnchor),
-            userLocation.heightAnchor.constraint(equalToConstant: 45)])
+            userLocationSearch.topAnchor.constraint(equalTo: venueSearch.bottomAnchor, constant: 0),
+            userLocationSearch.leadingAnchor.constraint(equalTo: leadingAnchor),
+            userLocationSearch.trailingAnchor.constraint(equalTo: trailingAnchor),
+            userLocationSearch.heightAnchor.constraint(equalToConstant: 45)])
     }
     private func mapConstraints() {
         addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: userLocation.bottomAnchor, constant: 0),
+            mapView.topAnchor.constraint(equalTo: userLocationSearch.bottomAnchor, constant: 0),
             mapView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
             mapView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1),
             mapView.heightAnchor.constraint(equalToConstant: 470)])

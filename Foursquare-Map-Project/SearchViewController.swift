@@ -94,7 +94,7 @@ class SearchViewController: UIViewController {
         mainView.venuesCollectionView.delegate = self
         mainView.venuesCollectionView.dataSource = self
         mainView.venueSearch.delegate = self
-        mainView.userLocation.delegate = self
+        mainView.userLocationSearch.delegate = self
     }
     
     private func checkLocationPermission() {
@@ -181,7 +181,7 @@ extension SearchViewController: UISearchBarDelegate {
         
     }
 }
-
+//MARK: - LocationDelegate
 extension SearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Update location: \(locations)")
@@ -195,6 +195,7 @@ extension SearchViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("Authorization status is changed")
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             mainView.mapView.showsUserLocation = true

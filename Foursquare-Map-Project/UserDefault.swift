@@ -10,4 +10,5 @@ import Foundation
 
 struct UserDefault {
     static let searchTerm = "Search Term"
+    static let locationSearch = "Venue Location"
 }

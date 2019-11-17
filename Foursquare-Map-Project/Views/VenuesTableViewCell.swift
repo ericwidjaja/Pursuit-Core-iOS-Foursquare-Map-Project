@@ -38,7 +38,7 @@ class VenuesTableViewCell: UITableViewCell {
         return addressTextView
     }()
     
-    var cellImage: UIImageView = {
+    lazy var cellImage: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 130))
         image.backgroundColor = #colorLiteral(red: 0.810403645, green: 0.8105404973, blue: 0.8103856444, alpha: 1)
         return image

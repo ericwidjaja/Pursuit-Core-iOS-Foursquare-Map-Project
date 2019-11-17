@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func mainTabController() -> UITabBarController {
-        let firstvc = SearchViewController(),secondvc = CollectionViewController()
+        let firstvc = SearchViewController(),secondvc = FaveCollectionVC()
         
         let navVC = UINavigationController(rootViewController: firstvc)
         firstvc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
