@@ -22,7 +22,7 @@ class DetailView: UIView {
         super.init(coder: aDecoder)
         setDetailConstraints()
     }
-
+    
     var venue: VenueStruct?
     
     //MARK: - Objects
@@ -127,5 +127,5 @@ class DetailView: UIView {
         detailVenueName.text = venue.name
         detailVenueAddress.text = venue.location.address
     }
-
+    
 }

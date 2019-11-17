@@ -15,14 +15,14 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         setConstraints()
-    self.venuesCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
+        self.venuesCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-
+    
     lazy var mapView: MKMapView = {
         let map = MKMapView()
         map.layer.cornerRadius = 3.0
@@ -50,20 +50,20 @@ class MainView: UIView {
         listButton.imageView?.tintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         return listButton
     }()
-
+    
     lazy var venuesCollectionView: UICollectionView = {
         
         let cellLayout = UICollectionViewFlowLayout()
-            cellLayout.scrollDirection = .horizontal
-            cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 1, bottom: 0, right: 1)
-            cellLayout.itemSize = CGSize.init(width: 165, height: 200)
+        cellLayout.scrollDirection = .horizontal
+        cellLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 1, bottom: 0, right: 1)
+        cellLayout.itemSize = CGSize.init(width: 165, height: 200)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: cellLayout)
-            collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
-            collectionView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-            collectionView.layer.cornerRadius = 5.0
-    return collectionView
+        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
+        collectionView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        collectionView.layer.cornerRadius = 5.0
+        return collectionView
     }()
-
+    
     func setConstraints() {
         searchConstraints()
         userLocationConstraints()

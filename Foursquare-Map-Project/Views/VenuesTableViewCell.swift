@@ -9,7 +9,7 @@
 import UIKit
 
 class VenuesTableViewCell: UITableViewCell {
-
+    
     var cellNameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.font = UIFont.init(name: "Rockwell-Bold", size: 16)
@@ -49,7 +49,7 @@ class VenuesTableViewCell: UITableViewCell {
         setCellNameConstraints()
         setCellAddressConstraints()
     }
-
+    
     private func setCellNameConstraints() {
         contentView.addSubview(cellNameLabel)
         cellNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -78,15 +78,15 @@ class VenuesTableViewCell: UITableViewCell {
             cellImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             cellImage.widthAnchor.constraint(equalToConstant: cellImage.frame.width)])
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
