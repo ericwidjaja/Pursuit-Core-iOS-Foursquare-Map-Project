@@ -18,7 +18,7 @@ class DetailVC: UIViewController {
            let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
            add.tintColor = .white
            return add
-       }()
+    }()
     
     lazy var backButton: UIBarButtonItem = {
         let backSearchVC = UIBarButtonItem(barButtonSystemItem: .rewind, target: self, action: #selector(backButtonPressed))

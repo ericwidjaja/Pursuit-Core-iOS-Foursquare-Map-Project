@@ -66,6 +66,7 @@ class DetailView: UIView {
         activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }()
+    
     lazy var detailVenueImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .clear
