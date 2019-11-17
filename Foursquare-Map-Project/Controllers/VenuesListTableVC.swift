@@ -10,6 +10,7 @@ import UIKit
 
 class VenuesListTableVC: UIViewController {
     
+    //MARK: Variables
     var tblViewCellVenues = [VenueStruct]()
     var venue: VenueStruct!
     

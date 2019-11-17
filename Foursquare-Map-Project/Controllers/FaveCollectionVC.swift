@@ -64,6 +64,7 @@ class FaveCollectionVC: UIViewController {
             navigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             navigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)])
     }
+
     private func setupNavBar() {
         navigationBar.items = [navItem]
         navItem.rightBarButtonItem = addButton
@@ -74,7 +75,7 @@ class FaveCollectionVC: UIViewController {
         view.addSubview(venuesCollectionsCV)
         venuesCollectionsCV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            venuesCollectionsCV.topAnchor.constraint(equalTo: navigationBar.bottomAnchor,constant: 20),
+            venuesCollectionsCV.topAnchor.constraint(equalTo: navigationBar.bottomAnchor,constant: 30),
             venuesCollectionsCV.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             venuesCollectionsCV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             venuesCollectionsCV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
@@ -90,6 +91,7 @@ class FaveCollectionVC: UIViewController {
     
     @objc func addButtonPressed() {
         let addCreate2FaveVC = AddCreateCollectionVC()
+        
         
         
         present(addCreate2FaveVC, animated: true, completion: nil)
