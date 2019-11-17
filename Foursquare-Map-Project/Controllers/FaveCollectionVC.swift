@@ -114,9 +114,11 @@ class FaveCollectionVC: UIViewController {
     
     private func loadFaveCollection() {
         print("more code here - persistence")
-        do { let persistedCollections = try CollectionPersistence.helper.getVenues}
+        do { let persistedCollections = try CollectionPersistence.helper.getVenues();     venuesCollections = persistedCollections
+        } catch {
+            print(error)
+        }
     }
-
 }
 //MARK: - Extentions
 
@@ -139,5 +141,10 @@ extension FaveCollectionVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         venuesCollections.count
+    }
+}
+extension FaveCollectionVC: ReloadVenues {
+    func reloadFaveCollectionView() {
+       loadFaveCollection()
     }
 }
