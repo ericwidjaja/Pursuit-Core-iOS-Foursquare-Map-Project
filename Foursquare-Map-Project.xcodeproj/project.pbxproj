@@ -49,6 +49,8 @@
 		DFC0AF5D2380CCE9005678BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFC0AF5C2380CCE9005678BF /* Main.storyboard */; };
 		DFC0AF5F2380D8FA005678BF /* FavoritesCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC0AF5E2380D8FA005678BF /* FavoritesCellCollectionViewCell.swift */; };
 		DFC0AF602380D8FA005678BF /* FavoritesCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC0AF5E2380D8FA005678BF /* FavoritesCellCollectionViewCell.swift */; };
+		DFC0AF622380DED2005678BF /* FaveCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC0AF612380DED2005678BF /* FaveCollections.swift */; };
+		DFC0AF632380DED2005678BF /* FaveCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC0AF612380DED2005678BF /* FaveCollections.swift */; };
 		DFD689402374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 		DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD6893F2374C90700A025F4 /* LocationDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,7 @@
 		DF6FF983237923EC00B6D719 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DFC0AF5C2380CCE9005678BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DFC0AF5E2380D8FA005678BF /* FavoritesCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		DFC0AF612380DED2005678BF /* FaveCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveCollections.swift; sourceTree = "<group>"; };
 		DFD6893F2374C90700A025F4 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +185,7 @@
 				DFD6893F2374C90700A025F4 /* LocationDelegate.swift */,
 				DF32A57223779235005D58E7 /* SearchCollectionViewCell.swift */,
 				DF466F3F2377A4B400241FA6 /* VenueImages.swift */,
+				DFC0AF612380DED2005678BF /* FaveCollections.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,8 +195,8 @@
 			children = (
 				DF2E893623722E0C007D1685 /* SearchViewController.swift */,
 				DF6FF9802379022600B6D719 /* DetailVC.swift */,
-				DF2E893923722E2F007D1685 /* FaveCollectionVC.swift */,
 				DF2E88A3237096A1007D1685 /* VenuesListTableVC.swift */,
+				DF2E893923722E2F007D1685 /* FaveCollectionVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +321,7 @@
 				DFC0AF5F2380D8FA005678BF /* FavoritesCellCollectionViewCell.swift in Sources */,
 				DF2ABE8D2373812A00E731AD /* AppError.swift in Sources */,
 				DF2ABE932373818600E731AD /* NetworkHelper.swift in Sources */,
+				DFC0AF622380DED2005678BF /* FaveCollections.swift in Sources */,
 				DF2E88CC2370D800007D1685 /* MainView.swift in Sources */,
 				DF2E88A0237096A1007D1685 /* AppDelegate.swift in Sources */,
 				DFD689402374C90700A025F4 /* LocationDelegate.swift in Sources */,
@@ -347,6 +352,7 @@
 				DF2E88CD2370D800007D1685 /* MainView.swift in Sources */,
 				DF6FF9822379022600B6D719 /* DetailVC.swift in Sources */,
 				DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */,
+				DFC0AF632380DED2005678BF /* FaveCollections.swift in Sources */,
 				DF2E893823722E0C007D1685 /* SearchViewController.swift in Sources */,
 				DF2E88BA237096A2007D1685 /* Foursquare_Map_ProjectTests.swift in Sources */,
 				DF6FF985237923EC00B6D719 /* DetailView.swift in Sources */,
