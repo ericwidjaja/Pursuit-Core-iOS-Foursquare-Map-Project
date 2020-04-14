@@ -87,7 +87,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setMainView()
         checkLocationPermission()
-        locationManager.delegate = self
         mainView.eventsListButton.addTarget(self, action: #selector(listButtonPressed), for: .touchUpInside)
         mainView.mapView.delegate = self
         mainView.mapView.userTrackingMode = .follow
@@ -175,6 +174,7 @@ extension SearchViewController: UISearchBarDelegate {
             getVenues(keyword: searchText)
             UserDefaults.standard.set(searchText, forKey: UserDefault.searchTerm)
         default:
+            //wite a private func, which taking a string and search long and lat, then change currentRegion to this search String
             print("more code here")
             //update search bar geo
         }

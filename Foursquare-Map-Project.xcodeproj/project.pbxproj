@@ -14,6 +14,8 @@
 		DF28B2972381E86500AA8CE0 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF28B2952381E86500AA8CE0 /* PersistenceHelper.swift */; };
 		DF28B2992381F0D500AA8CE0 /* ReloadVenuesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF28B2982381F0D500AA8CE0 /* ReloadVenuesProtocol.swift */; };
 		DF28B29A2381F0D500AA8CE0 /* ReloadVenuesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF28B2982381F0D500AA8CE0 /* ReloadVenuesProtocol.swift */; };
+		DF28B3512384AFAB00AA8CE0 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF28B3502384AFAB00AA8CE0 /* LocationGetter.swift */; };
+		DF28B3522384AFAB00AA8CE0 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF28B3502384AFAB00AA8CE0 /* LocationGetter.swift */; };
 		DF2ABE8D2373812A00E731AD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8C2373812A00E731AD /* AppError.swift */; };
 		DF2ABE8E2373812A00E731AD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8C2373812A00E731AD /* AppError.swift */; };
 		DF2ABE902373814700E731AD /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2ABE8F2373814700E731AD /* ImageHelper.swift */; };
@@ -77,6 +79,7 @@
 		DF28B2932381E7AE00AA8CE0 /* CollectionPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPersistence.swift; sourceTree = "<group>"; };
 		DF28B2952381E86500AA8CE0 /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		DF28B2982381F0D500AA8CE0 /* ReloadVenuesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadVenuesProtocol.swift; sourceTree = "<group>"; };
+		DF28B3502384AFAB00AA8CE0 /* LocationGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGetter.swift; sourceTree = "<group>"; };
 		DF2ABE8C2373812A00E731AD /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		DF2ABE8F2373814700E731AD /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		DF2ABE922373818600E731AD /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 				DF2ABE922373818600E731AD /* NetworkHelper.swift */,
 				DF2ABE9523739BB100E731AD /* SearchAPIClient.swift */,
 				DF32A575237795FF005D58E7 /* ImageAPIClient.swift */,
+				DF28B3502384AFAB00AA8CE0 /* LocationGetter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 				DF2E88A4237096A1007D1685 /* VenuesListTableVC.swift in Sources */,
 				DF28B2962381E86500AA8CE0 /* PersistenceHelper.swift in Sources */,
 				DF2ABE902373814700E731AD /* ImageHelper.swift in Sources */,
+				DF28B3512384AFAB00AA8CE0 /* LocationGetter.swift in Sources */,
 				DF2E893723722E0C007D1685 /* SearchViewController.swift in Sources */,
 				DF6FF9812379022600B6D719 /* DetailVC.swift in Sources */,
 				DFC0AF5F2380D8FA005678BF /* FavoritesCellCollectionViewCell.swift in Sources */,
@@ -381,6 +386,7 @@
 				DF2E893B23722E2F007D1685 /* FaveCollectionVC.swift in Sources */,
 				DF32A577237795FF005D58E7 /* ImageAPIClient.swift in Sources */,
 				DF2ABE912373814700E731AD /* ImageHelper.swift in Sources */,
+				DF28B3522384AFAB00AA8CE0 /* LocationGetter.swift in Sources */,
 				DFD689412374C90700A025F4 /* LocationDelegate.swift in Sources */,
 				DFC0AF602380D8FA005678BF /* FavoritesCellCollectionViewCell.swift in Sources */,
 				DF28B29A2381F0D500AA8CE0 /* ReloadVenuesProtocol.swift in Sources */,

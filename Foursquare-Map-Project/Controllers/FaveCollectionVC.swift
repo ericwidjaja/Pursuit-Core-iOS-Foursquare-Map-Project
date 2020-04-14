@@ -91,9 +91,6 @@ class FaveCollectionVC: UIViewController {
     
     @objc func addButtonPressed() {
         let addCreate2FaveVC = AddCreateCollectionVC()
-        
-        
-        
         present(addCreate2FaveVC, animated: true, completion: nil)
     }
 
