@@ -15,7 +15,6 @@ class DetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         setDetailConstraints()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
